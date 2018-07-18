@@ -1,0 +1,31 @@
+# server settings
+server:
+    address: "127.0.0.1:9000"
+    tls_dir: "./tls" # not implemented yet
+
+# auth specific settings
+auth:
+    # ttl for access token in seconds
+    timeout: 1800 # 30 minutes
+
+    # ttl for refresh token in seconds
+    refresh_timeout: 1209600 # two weeks
+
+    # login delay in ms
+    login_delay: 500
+
+    # secret key for token hashing
+    secret_key: ""
+
+# database specific settings
+database:
+    driver: "mysql"
+    db_connect: "db_user:db_passwd@(db_host:port)/db_name?parseTime=true"
+
+# logger settings
+logger:
+-   name: "default"  ## possible `auth_server`, `default`
+    type: "stdout"
+  #        format: "[%{time:15:04:05} %{level:.1s}] %{shortfile} %{shortfunc}: %{message}"
+    format: "[%{level:.1s} %{time:15:04:05}] %{message}"
+    level: "debug"

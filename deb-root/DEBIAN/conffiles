@@ -1,0 +1,3 @@
+/etc/init/auth-server.conf
+/etc/auth-server/auth-server.yaml
+/etc/systemd/system/auth-server.service

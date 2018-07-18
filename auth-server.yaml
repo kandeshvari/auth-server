@@ -1,0 +1,31 @@
+# server settings
+server:
+    address: "127.0.0.1:9000"
+    tls_dir: "./tls"
+
+# auth specific settings
+auth:
+    # ttl for access token in seconds
+    timeout: 1800
+
+    # ttl for refresh token in seconds
+    refresh_timeout: 1209600 # two weeks
+
+    # login delay in ms
+    login_delay: 500
+
+    # secret key for token hashing
+    secret_key: "asklpkvcuweSDVwrsdvwer@#$He!#d@FERGf24Fsdfgsdfasdfga"
+
+# database specific settings
+database:
+    driver: "mysql"
+    db_connect: "aire_dev:1qazxsw2@(devland)/aire_dev?parseTime=true"
+
+# logger settings
+logger:
+-   name: "default"  ## possible `auth_server`, `default`
+    type: "stdout"
+  #        format: "[%{time:15:04:05} %{level:.1s}] %{shortfile} %{shortfunc}: %{message}"
+    format: "[%{level:.1s} %{time:15:04:05}] %{shortfile}  %{message}"
+    level: "debug"

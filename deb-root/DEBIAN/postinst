@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+
+case $1 in
+    configure)
+	mkdir -p /var/lib/auth-server
+
+	if [ -x "/sbin/start" ]; then
+		status auth-server && stop auth-server || true
+		start auth-server || true
+	elif [ -c "/etc/systemd/system" ]; then
+		systemctl demon-reload
+		systemctl status auth-server && systemctl stop auth-server || true
+		systemctl start auth-server || true
+		systemctl enable auth-server || true
+	fi
+    ;;
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac

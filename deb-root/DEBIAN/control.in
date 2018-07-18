@@ -1,0 +1,8 @@
+Package: %NAME%
+Version: %VERSION%-%RELEASE%
+Section: net
+Priority: extra
+Architecture: all
+Depends:
+Maintainer: Dmitry Kurbatov <dk@dimcha.ru>
+Description: JWT auth server

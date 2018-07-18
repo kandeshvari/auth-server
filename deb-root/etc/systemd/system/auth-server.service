@@ -1,0 +1,13 @@
+[Unit]
+Description=Auth server service
+After=network.target
+
+[Service]
+Type=simple
+User=promo
+WorkingDirectory=/var/lib/auth-server
+ExecStart=/opt/auth-server/auth-server server start --config=/etc/auth-server/auth-server.yaml
+Restart=on-failure # or always, on-abort, etc
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+SERVICE="auth-server"
+USER="auth-server"
+USER_HOME="/var/lib/${USER}"
+
+
+if [ "$1" = "purge" ]; then
+	rm -rf /opt/${SERVICE} || true
+fi
